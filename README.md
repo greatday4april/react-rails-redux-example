@@ -1,4 +1,13 @@
-# React-Rails Fullstack Application Skeleton
+# React-Rails-Redux Example
+
+This is an example using https://github.com/greatday4april/react-rails-skeleton with a complete resource chain of
+
+1. `Users` and `User` react component (app/javascript/components/users)
+2. Redux store, reducer, and async actions integrated with rails backend using https://github.com/instacart/redux-rails and https://github.com/instacart/redux-rails-resource
+3.
+
+
+
 
 ## Pre-requisites
 
