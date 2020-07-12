@@ -28,15 +28,12 @@ class Users extends React.Component {
     if (!this.props || this.props.loading) {
       return <p>Loading...</p>;
     }
-    const users = this.props.users
-      .filter(user => !user.loading)
-      .map(user => user.attributes);
 
     return (
       <React.Fragment>
         <h1>All Users</h1>
         <ul>
-          {users.map((user) => (
+          {this.props.users.map((user) => (
             <li key={user.id}>
               <Link to={`/users/${user.id}`}>{`${user.fname} ${user.lname}`}</Link>
             </li>
@@ -48,12 +45,14 @@ class Users extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  users: state.resources.Users.models,
+  users: state.resources.Users.models
+    .map(user => user.attributes),
   loading: state.resources.Users.loading,
 });
 
 const mapDispatchToProps = {
-  fetchUsers: () => railsActions.index({ resource: "Users" })
+  fetchUsers: () => railsActions.index({ resource: "Users" }),
+  createUser: () => railsActions.create({resource: "Users" })
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users);

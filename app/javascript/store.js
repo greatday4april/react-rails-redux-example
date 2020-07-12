@@ -5,7 +5,7 @@ import logger from "redux-logger";
 import thunk from "redux-thunk";
 
 const apiConfig = {
-    baseUrl: "http://127.0.0.1:3000/api/",
+    baseUrl: "/api/",
     resources: {
         Users: {
             controller: "users",

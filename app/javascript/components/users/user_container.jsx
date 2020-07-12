@@ -4,27 +4,27 @@ import { railsActions } from "redux-rails";
 
 class User extends React.Component {
   componentDidMount() {
-    this.props.fetchUser(this.props.match.params.id);
+    // cast to number otherwise redux-rails wont be able to match with the data from server
+    this.props.fetchUser(Number(this.props.match.params.id));
   }
 
   render () {
+    debugger;
     const user = this.props.user;
-    if (!user || this.props.loading) {
+    if (!user) {
       return <p>Loading...</p>;
     }
 
-    const attributes = user;
     return (
-      <React.Fragment>{`${attributes.fname} ${attributes.lname}`}</React.Fragment>
+      <React.Fragment>{`${user.fname} ${user.lname}`}</React.Fragment>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const userId = ownProps.match.params.id;
+  const userId = Number(ownProps.match.params.id);
   const model = state.resources.Users.models
-    .filter(m => !m.loading)
-    .filter(m => m.id === Number(userId))[0];
+    .filter(m => m.id === userId)[0];
 
   return model ? {
     user: model.attributes,
