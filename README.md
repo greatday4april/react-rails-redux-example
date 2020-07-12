@@ -4,6 +4,11 @@ This is an example using https://github.com/greatday4april/react-rails-skeleton 
 
 But use Redux only if you need to! Having state stored within the components is perfectly fine as long as your top-level components are not bloated
 
+## Setup
+run `bundle install && yarn install` and then run `rails db:setup && rails s`, you should be able to visit `http://127.0.0.1:3000/` to see a list of users
+
+## Features
+
 `rails g model user && rails g scaffold_controller api/user --api` and `rails g react:component Users users:array` are used to generate files
 
 1. `users` db table with `fname` and `lname` fields
