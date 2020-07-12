@@ -19,7 +19,7 @@ run `bundle install && yarn install` and then run `rails db:setup && rails s`, y
     4.2 partial path fixed with `api/users/api_user`
 5. routes added in `routes.rb`
 6. store configured with the corresponding rails apis , thunk and logger in store.js
-7. with the middleware we added, no reducer / action creators needed for our rails apis, `redux-rails` does all the magic for you (https://github.com/instacart/redux-rails/)
+7. with the middleware we added, we don't need to write our own reducer and action creators, `redux-rails` does all the magic for you (https://github.com/instacart/redux-rails/)
 8. `react-router` configures frontend routing so `/` matches `UsersContainer` and `/users/:id` matches `UserContainer`
 9. `UsersContainer` and `UserContainer` talks to the store directly, but if you dont need `UserContainer` as top-level component, you can just pass in user object as prop into `User` component
 
