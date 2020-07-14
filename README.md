@@ -7,6 +7,8 @@ But use Redux only if you need to! Having state stored within the components is 
 ## Setup
 run `bundle install && yarn install` and then run `rails db:setup && rails s`, you should be able to visit `http://127.0.0.1:3000/` to see a list of users
 
+For a live demo, checkout: https://react-redux-rails-example.herokuapp.com/
+
 ## Features
 
 `rails g model user && rails g scaffold_controller api/user --api` and `rails g react:component Users users:array` are used to generate files
@@ -22,6 +24,7 @@ run `bundle install && yarn install` and then run `rails db:setup && rails s`, y
 7. with the middleware we added, we don't need to write our own reducer and action creators, `redux-rails` does all the magic for you (https://github.com/instacart/redux-rails/)
 8. `react-router` configures frontend routing so `/` matches `UsersContainer` and `/users/:id` matches `UserContainer`
 9. `UsersContainer` and `UserContainer` talks to the store directly, but if you dont need `UserContainer` as top-level component, you can just pass in user object as prop into `User` component
+10. This repository is production ready except you need to remove `window.store = store` assignment.
 
 ## Store state schema
 
