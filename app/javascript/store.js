@@ -14,10 +14,19 @@ const apiConfig = {
     optimisticUpdateEnabled: false,
 };
 
-export const store = createStore(
-    combineReducers({
-        resources: apiReducer(apiConfig) // auto-generates reducers
-    }),
-    {},
-    applyMiddleware(middleWare(apiConfig), thunk, logger)
+const middlewares = [middleWare(apiConfig), thunk];
+if (process.env.NODE_ENV !== "production") {
+    // must use 'require' (import only allowed at top of file)
+    const { logger } = require("redux-logger");
+    middlewares.push(logger);
+}
+
+const configureStore = (preloadedState = {}) => createStore(
+    combineReducers(
+        { resources: apiReducer(apiConfig) } // auto-generated reducers
+    ),
+    preloadedState,
+    applyMiddleware(...middlewares)
 );
+
+export default configureStore;

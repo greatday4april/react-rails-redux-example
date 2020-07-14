@@ -9,7 +9,6 @@ class User extends React.Component {
   }
 
   render () {
-    debugger;
     const user = this.props.user;
     if (!user) {
       return <p>Loading...</p>;

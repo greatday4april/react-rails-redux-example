@@ -3,7 +3,10 @@ import { HashRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {store} from '../store'
+import configureStore from '../store'
+
+const store = configureStore();
+window.store = store;
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -12,8 +15,6 @@ const Root = ({ store }) => (
     </HashRouter>
   </Provider>
 );
-
-window.store = store;
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
