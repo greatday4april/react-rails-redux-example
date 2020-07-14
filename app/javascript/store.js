@@ -1,7 +1,6 @@
 import { apiReducer, middleWare } from 'redux-rails'
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 
-import logger from "redux-logger";
 import thunk from "redux-thunk";
 
 const apiConfig = {
