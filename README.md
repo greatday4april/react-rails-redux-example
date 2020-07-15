@@ -33,16 +33,11 @@ run `bundle install && yarn install` and then run `rails db:setup && rails s`, y
 ```JavaScript
 {
     users: {
-        1: {id: 1, fname: "Marcel", lname: "Walter", url: "https://react-redux-rails-example.herokuapp.com/api/users/1"}
-        2: {id: 2, fname: "Jeromy", lname: "Wisozk", url: "https://react-redux-rails-example.herokuapp.com/api/users/2"}
-        3: {id: 3, fname: "Ned", lname: "Kihn", url: "https://react-redux-rails-example.herokuapp.com/api/users/3"}
-        4: {id: 4, fname: "Beata", lname: "Quigley", url: "https://react-redux-rails-example.herokuapp.com/api/users/4"}
+        1: {id: 1, fname: "Marcel", lname: "Walter", url: "https://react-redux-rails-example.herokuapp.com/api/users/1"},
+        2: {id: 2, fname: "Jeromy", lname: "Wisozk", url: "https://react-redux-rails-example.herokuapp.com/api/users/2"},
+        3: {id: 3, fname: "Ned", lname: "Kihn", url: "https://react-redux-rails-example.herokuapp.com/api/users/3"},
+        4: {id: 4, fname: "Beata", lname: "Quigley", url: "https://react-redux-rails-example.herokuapp.com/api/users/4"},
         5: {id: 5, fname: "Edwardo", lname: "Barton", url: "https://react-redux-rails-example.herokuapp.com/api/users/5"}
-        6: {id: 6, fname: "Jenna", lname: "Ryan", url: "https://react-redux-rails-example.herokuapp.com/api/users/6"}
-        7: {id: 7, fname: "Keenan", lname: "Dooley", url: "https://react-redux-rails-example.herokuapp.com/api/users/7"}
-        8: {id: 8, fname: "Myrtie", lname: "Cummings", url: "https://react-redux-rails-example.herokuapp.com/api/users/8"}
-        9: {id: 9, fname: "Nettie", lname: "Klein", url: "https://react-redux-rails-example.herokuapp.com/api/users/9"}
-        10: {id: 10, fname: "Roberto", lname: "Rogahn", url: "https://react-redux-rails-example.herokuapp.com/api/users/10"}
     }
 }
 ```
