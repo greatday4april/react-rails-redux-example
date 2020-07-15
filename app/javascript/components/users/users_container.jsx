@@ -1,14 +1,14 @@
+import { createUser, fetchUsers } from "../../actions/user_actions"
+
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import React from "react"
 import { connect } from "react-redux"
-import { railsActions } from "redux-rails";
 
 class Users extends React.Component {
   static propTypes = {
     fetchUsers: PropTypes.func,
     createUser: PropTypes.func,
-    loading: PropTypes.bool,
     users: PropTypes.array,
   };
 
@@ -25,7 +25,7 @@ class Users extends React.Component {
   };
 
   render() {
-    if (!this.props || this.props.loading) {
+    if (!this.props || !this.props.users) {
       return <p>Loading...</p>;
     }
 
@@ -45,14 +45,12 @@ class Users extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  users: state.resources.Users.models
-    .map(user => user.attributes),
-  loading: state.resources.Users.loading,
+  users: state?.users ? Object.values(state?.users) : undefined
 });
 
-const mapDispatchToProps = {
-  fetchUsers: () => railsActions.index({ resource: "Users" }),
-  createUser: () => railsActions.create({resource: "Users" })
-};
+const mapDispatchToProps = (dispatch) => ({
+  fetchUsers: () => dispatch(fetchUsers()),
+  createUser: (user) => dispatch(createUser(user)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users);

@@ -1,11 +1,10 @@
 import React from "react"
 import { connect } from "react-redux";
-import { railsActions } from "redux-rails";
+import { fetchUser } from "../../actions/user_actions";
 
 class User extends React.Component {
   componentDidMount() {
-    // cast to number otherwise redux-rails wont be able to match with the data from server
-    this.props.fetchUser(Number(this.props.match.params.id));
+    this.props.fetchUser(this.props.match.params.id);
   }
 
   render () {
@@ -21,18 +20,14 @@ class User extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const userId = Number(ownProps.match.params.id);
-  const model = state.resources.Users.models
-    .filter(m => m.id === userId)[0];
+  const userId = ownProps.match.params.id;
+  const user = state.users ? state.users[userId] : undefined;
 
-  return model ? {
-    user: model.attributes,
-    loading: model.loading,
-  } : {};
+  return {user: user};
 };
 
-const mapDispatchToProps = {
-  fetchUser: (userId) => railsActions.show({ resource: "Users", id: userId }),
-};
+const mapDispatchToProps = (dispatch) => ({
+  fetchUser: (userId) => dispatch(fetchUser(userId)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(User);

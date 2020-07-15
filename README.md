@@ -20,8 +20,8 @@ For a live demo, checkout: https://react-redux-rails-example.herokuapp.com/
     4.1 `@api_user` replaced with `@user` in users_controller and jbuilders
     4.2 partial path fixed with `api/users/api_user`
 5. routes added in `routes.rb`
-6. store configured with the corresponding rails apis , thunk and logger in store.js
-7. with the middleware we added, we don't need to write our own reducer and action creators, `redux-rails` does all the magic for you (https://github.com/instacart/redux-rails/)
+6. store configured with the corresponding actions , thunk and logger in store.js
+7. actions,  reducers configured
 8. `react-router` configures frontend routing so `/` matches `UsersContainer` and `/users/:id` matches `UserContainer`
 9. `UsersContainer` and `UserContainer` talks to the store directly, but if you dont need `UserContainer` as top-level component, you can just pass in user object as prop into `User` component
 10. This repository is production ready except you need to remove `window.store = store` assignment.
