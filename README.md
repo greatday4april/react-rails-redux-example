@@ -4,10 +4,11 @@ This is an example using https://github.com/greatday4april/react-rails-skeleton 
 
 But use Redux only if you need to! Having state stored within the components is perfectly fine as long as your top-level components are not bloated
 
+## Live Demo
+https://react-redux-rails-example.herokuapp.com/
+
 ## Setup
 run `bundle install && yarn install` and then run `rails db:setup && rails s`, you should be able to visit `http://127.0.0.1:3000/` to see a list of users
-
-For a live demo, checkout: https://react-redux-rails-example.herokuapp.com/
 
 ## Features
 
@@ -25,47 +26,23 @@ For a live demo, checkout: https://react-redux-rails-example.herokuapp.com/
 8. `react-router` configures frontend routing so `/` matches `UsersContainer` and `/users/:id` matches `UserContainer`
 9. `UsersContainer` and `UserContainer` talks to the store directly, but if you dont need `UserContainer` as top-level component, you can just pass in user object as prop into `User` component
 10. This repository is production ready except you need to remove `window.store = store` assignment.
+11. `BrowserRouter` is used and server default to serving html via `state_pages#root` so react-router takes care of routing
 
 ## Store state schema
 
 ```JavaScript
 {
-    Users: {
-        queryParams: {},
-        loading: false,
-        loadingError: undefined,
-        models: [
-            {
-                loading: false,
-                loadingError: undefined,
-                id: 123,
-                attributes: {
-                    id: 123,
-                    f_name: 'Leia',
-                    l_name: 'Organa',
-                }
-            },
-            {
-                loading: false,
-                loadingError: undefined,
-                id: 124,
-                attributes: {
-                    id: 124,
-                    f_name: 'Han',
-                    l_name: 'Solo',
-                }
-            },
-            {
-                loading: false,
-                loadingError: undefined,
-                id: 125,
-                attributes: {
-                    id: 125,
-                    f_name: 'Luke',
-                    l_name: 'Skywalker',
-                }
-            }
-        ]
+    users: {
+        1: {id: 1, fname: "Marcel", lname: "Walter", url: "https://react-redux-rails-example.herokuapp.com/api/users/1"}
+        2: {id: 2, fname: "Jeromy", lname: "Wisozk", url: "https://react-redux-rails-example.herokuapp.com/api/users/2"}
+        3: {id: 3, fname: "Ned", lname: "Kihn", url: "https://react-redux-rails-example.herokuapp.com/api/users/3"}
+        4: {id: 4, fname: "Beata", lname: "Quigley", url: "https://react-redux-rails-example.herokuapp.com/api/users/4"}
+        5: {id: 5, fname: "Edwardo", lname: "Barton", url: "https://react-redux-rails-example.herokuapp.com/api/users/5"}
+        6: {id: 6, fname: "Jenna", lname: "Ryan", url: "https://react-redux-rails-example.herokuapp.com/api/users/6"}
+        7: {id: 7, fname: "Keenan", lname: "Dooley", url: "https://react-redux-rails-example.herokuapp.com/api/users/7"}
+        8: {id: 8, fname: "Myrtie", lname: "Cummings", url: "https://react-redux-rails-example.herokuapp.com/api/users/8"}
+        9: {id: 9, fname: "Nettie", lname: "Klein", url: "https://react-redux-rails-example.herokuapp.com/api/users/9"}
+        10: {id: 10, fname: "Roberto", lname: "Rogahn", url: "https://react-redux-rails-example.herokuapp.com/api/users/10"}
     }
 }
 ```
